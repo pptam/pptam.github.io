@@ -12,17 +12,71 @@
 </head>
 
 <body style="margin: 50px;">
-    <p>Hi, this is the future website of <b>PPTAM - Tools for Production and Performance Testing Based Application
-            Monitoring</b>.</p>
-    <p>For now, here are some links:</p>
+    <h1>Video tutorials for <b>PPTAM - Tools for Production and Performance Testing Based Application
+            Monitoring</b>.</h1>
     <p>
-    <ol>
-        <li>The github page: <a href="https://github.com/pptam/pptam-tool">https://github.com/pptam/pptam-tool</a></li>
-    </ol>
-    </p>
 
-    <asciinema-player cols="80" rows="25" poster="npt:15:44" src="./videos/installation.json">
-    </asciinema-player>
+    <div style="margin-top: 20px">
+        <p>PPTAM can be installed in various ways. Here is the installation within a Virtual Box using Vagrant.<br />The
+            command 'vagrant up' within the installation folder installs two machines: the driver and the testbed
+            machine.
+        </p>
+        <asciinema-player cols="80" rows="25" poster="npt:15:44" src="./videos/installation.cast">
+        </asciinema-player>
+    </div>
+
+    <div style="margin-top: 20px">
+        <p>Once both machines are intalled, we can download PPTAM into the driver.<br />Login to the driver using
+            'vagrant ssh driver', and execute the script '/vagrant/scripts/get_pptam.sh'.
+        </p>
+        <asciinema-player cols="80" rows="25" poster="npt:15:44" src="./videos/getpptam.cast">
+        </asciinema-player>
+    </div>
+
+    <div style="margin-top: 20px">
+        <p>Experiments are configured in separate folders (that we always prefix with 'design_'). There you can setup
+            the configuration in configuration.ini and then define a configuration for each test in test_plan.ini.
+            configured</p>
+        <asciinema-player cols="80" rows="25" poster="npt:15:44" src="./videos/configure.cast">
+        </asciinema-player>
+    </div>
+
+    <div style="margin-top: 20px">
+        <p>To then run the experiments, you change to the folder 'execute' and run 'execute_test.py' passing the folder
+            with the configuration as the first parameter.</p>
+        <asciinema-player cols="80" rows="25" poster="npt:15:44" src="./videos/run.cast">
+        </asciinema-player>
+    </div>
+
+    <div style="margin-top: 20px">
+        The collected data is currently collected through:
+
+        <ul>
+            <li><a href="https://locust.io">https://locust.io</a></li>
+            <li><a href="https://docs.docker.com/engine/reference/commandline/stats/">docker stats</a></li>
+            <li><a href="https://www.jaegertracing.io">https://www.jaegertracing.io</a></li>
+        </ul>
+    </div>
+
+    <div style="margin-top: 20px">
+        It is stored within <a href="https://www.influxdata.com">Influx DB</a>, accessible through a redirected port to
+        the driver machine, at http://localhost:9999 using the user name 'pptam' and the default password '12345678'.
+
+        <img src="./images/1.png" />
+    </div>
+
+    <div style="margin-top: 20px">
+        After logging in, the bucket containing the collected data is named 'pptam'.
+
+        <img src="./images/2.png" />
+    </div>
+
+    <div style="margin-top: 20px">
+        Within that bucket, queries can be created with the data explorer or dashboards can be created with the boards
+        feature of influx db.
+
+        <img src="./images/3.png" />
+    </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
