@@ -1,0 +1,24 @@
+@font-face {
+  font-family: din-bold;
+  src: url("../fonts/D-DIN-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: din;
+  src: url("../fonts/D-DIN.woff") format("woff");
+}
+
+@font-face {
+  font-family: din-condensed;
+  src: url("../fonts/D-DINCondensed.woff") format("woff");
+}
+
+body {
+  font-family: din, Helvetica, sans-serif;
+  font-size: 1.1rem;
+}
+
+.important1 {
+  background: rgba(255, 255, 0, 0.397);
+  padding: 0px 0px;
+}
